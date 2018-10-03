@@ -8043,7 +8043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762459083}
   m_Layer: 8
-  m_Name: Equipment
+  m_Name: Equipment Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,10 +7,21 @@ public class Health : MonoBehaviour {
     [SerializeField]
     private int healthAmount = 100;
 
+    private IKillable entity; 
+
+    private void Awake() {
+        entity = gameObject.GetComponent<IKillable>();
+    }
+
     public void Damage(int amount) {
         healthAmount -= amount;
         if (healthAmount <= 0) {
-            Debug.Log(gameObject.name + "health is at" + healthAmount);
+            if (entity != null) {
+                entity.Die();
+            }
+            else {
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Ammo : MonoBehaviour {
     [SerializeField]
-    private GameObject type;
-    [SerializeField]
     private int damage = 100;
 
     private void OnTriggerEnter(Collider other) {
@@ -13,6 +11,10 @@ public class Ammo : MonoBehaviour {
         if (health != null) {
             health.Damage(damage);
         }
+        Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible() {
         Destroy(gameObject);
     }
 

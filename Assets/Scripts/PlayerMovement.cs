@@ -41,6 +41,14 @@ public class PlayerMovement : MonoBehaviour {
 			crouch = false;
 		}
 
+        if (Input.GetButtonDown(useButton)) 
+        {
+            //check if player collider is touching another collider
+            
+                //then check if that colliders gameobject has an attached script that implements IEquipable
+                    //call that objects equip function
+        }
+
 	}
 
     public void OnLanding() {
