@@ -78,11 +78,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248538992593548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4749cabdfbdeb0a46ac60fc7b93fab0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 48c969353fcd55c41bcc6f14db379d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCount: 10
-  ammoPrefab: {fileID: 1962742060726534, guid: 04a2f4605342b6943a7318df01307a95, type: 2}
+  ammoCount: 3
+  ammoPrefab: {fileID: 0}
   ammoSpawn: {fileID: 4412329731445348}
 --- !u!212 &212403736587576440
 SpriteRenderer:

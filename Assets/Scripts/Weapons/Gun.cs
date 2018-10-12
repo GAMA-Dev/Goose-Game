@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol : MonoBehaviour, IUseable, IThrowable {
+public class Gun : MonoBehaviour, IUseable, IThrowable {
     [SerializeField]
     private int ammoCount = 1;
     [SerializeField]
