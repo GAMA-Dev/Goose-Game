@@ -6,8 +6,7 @@ public class Pick_Up_Script : MonoBehaviour, IEquipable {
 	public bool thrown;
 	[SerializeField]
 	private GameObject realGun;
-	[SerializeField]
-	public GameObject equipSlot;
+
 
 	// Use this for initialization
 	void Awake () 
@@ -22,11 +21,10 @@ public class Pick_Up_Script : MonoBehaviour, IEquipable {
 		}
 	}
 	
-	public void Equip () 
+	public void Equip (Transform slot) 
 	{
-		GameObject clone = Instantiate(realGun, new Vector3(0, 0, 0), Quaternion.identity);
-		clone.GetComponent<Gun>().playerToFollow = equipSlot.transform;
-		Destroy(this.gameObject);
+        Instantiate(realGun, slot.position, Quaternion.identity, slot);
+        Destroy(this.gameObject); 
 	}
 	
 }

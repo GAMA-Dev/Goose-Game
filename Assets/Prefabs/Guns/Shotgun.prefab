@@ -22,7 +22,22 @@ GameObject:
   - component: {fileID: 212403736587576440}
   - component: {fileID: 114639565703718902}
   m_Layer: 13
-  m_Name: Equipment_Pistol
+  m_Name: Shotgun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1636274501402924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4412329731445348}
+  m_Layer: 13
+  m_Name: AmmoSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,10 +50,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248538992593548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.259041, y: 1.7183058, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4412329731445348}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4412329731445348
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636274501402924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.378, y: 0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4192651851555232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114639565703718902
@@ -49,14 +78,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1248538992593548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57386bf5ecd48a24d8cae250f41ffcc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4749cabdfbdeb0a46ac60fc7b93fab0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerToFollow: {fileID: 0}
-  ammoCount: 1
-  bulletSpeed: 10
-  ammoPrefab: {fileID: 0}
-  ammoSpawn: {fileID: 0}
+  ammoCount: 10
+  ammoPrefab: {fileID: 1962742060726534, guid: 04a2f4605342b6943a7318df01307a95, type: 2}
+  ammoSpawn: {fileID: 4412329731445348}
 --- !u!212 &212403736587576440
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -92,7 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300006, guid: 6c7e36d00e1d71141a0b823ca298a9e6, type: 3}
+  m_Sprite: {fileID: 21300020, guid: 6c7e36d00e1d71141a0b823ca298a9e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

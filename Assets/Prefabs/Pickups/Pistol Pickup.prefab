@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4141799370477662}
   - component: {fileID: 58972909633376538}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: Trigger
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrown: 0
-  realGun: {fileID: 0}
+  realGun: {fileID: 1248538992593548, guid: 9fa00f70d94dc4144992d54bbc3abcd6, type: 2}
+  equipSlot: {fileID: 0}
 --- !u!212 &212152128644397668
 SpriteRenderer:
   m_ObjectHideFlags: 1
