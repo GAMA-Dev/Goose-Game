@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     public string axisVertical = "Vertical_P1";
     public string jumpButton = "Jump_P1";
     public string useButton = "Use_P1";
-    public string pickUpButton = "Pickup_P1";
+    public string pickUpButton = "PickUp_P1";
 
 
 
@@ -27,13 +27,9 @@ public class PlayerMovement : MonoBehaviour {
 
 		horizontalMove = Input.GetAxisRaw(axisHorizontal) * runSpeed;
 
-        animator.SetFloat("Vertical Speed", controller.getVelocityY());
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
 		if (Input.GetButtonDown(jumpButton))
 		{
 			jump = true;
-            animator.SetBool("IsJumping", true);
 		}
 
         if (Input.GetAxisRaw(axisVertical) < 0) 
@@ -49,6 +45,9 @@ public class PlayerMovement : MonoBehaviour {
             if (transform.Find("Equipment Slot").childCount == 0) {
                 Pickup();
             }
+            else {
+                Drop();
+            }
         }
         if (Input.GetButtonDown(useButton)) {
             if (equipslot.childCount == 1) {
@@ -60,7 +59,10 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+
+
     private void Pickup() {
+        Debug.Log("Pickup Called");
         //Only check this layer for equipment triggers
         LayerMask equipable_mask = LayerMask.GetMask("Equip Trigger");
         ContactFilter2D equip_filter = new ContactFilter2D {
@@ -82,8 +84,15 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void Drop() {
+        //drop code
+        Debug.Log("Drop Called");
+        transform.Find("Equipment Slot").gameObject.SetActive(false);
+        transform.Find("Equipment Slot").DetachChildren();
+    }
+
     public void OnLanding() {
-        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsGrounded", true);
     }
 
     public void OnCrouching(bool isCrouching) {

@@ -26,4 +26,5 @@ public class Gun : MonoBehaviour, IUseable, IThrowable {
         Debug.Log(name + "Throw function called");
     }
 
+    
 }

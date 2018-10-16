@@ -10,9 +10,12 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
-	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    private Animator animator;
+
+
+    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
@@ -32,6 +35,7 @@ public class CharacterController2D : MonoBehaviour
 
 	private void Awake()
 	{
+        animator = GetComponent<Animator>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (OnLandEvent == null)
@@ -41,9 +45,12 @@ public class CharacterController2D : MonoBehaviour
 			OnCrouchEvent = new BoolEvent();
 	}
 
-	private void FixedUpdate()
+	private void LateUpdate()
 	{
-		bool wasGrounded = m_Grounded;
+
+        animator.SetFloat("Vertical Speed", m_Rigidbody2D.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(m_Rigidbody2D.velocity.x));
+        bool wasGrounded = m_Grounded;
 		m_Grounded = false;
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -54,11 +61,12 @@ public class CharacterController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				m_Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
+                if (!wasGrounded) {
+                    OnLandEvent.Invoke();
+                }
 			}
 		}
-	}
+    }
 
 
 	public void Move(float move, bool crouch, bool jump)
@@ -130,8 +138,9 @@ public class CharacterController2D : MonoBehaviour
 			// Add a vertical force to the player.
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-		}
-	}
+            animator.SetBool("IsGrounded", false);
+        }
+    }
 
 
 	private void Flip()

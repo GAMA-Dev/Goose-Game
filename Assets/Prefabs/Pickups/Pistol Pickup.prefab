@@ -146,7 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrown: 0
   realGun: {fileID: 1248538992593548, guid: 9fa00f70d94dc4144992d54bbc3abcd6, type: 2}
-  equipSlot: {fileID: 0}
 --- !u!212 &212152128644397668
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -181,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300028, guid: 6c7e36d00e1d71141a0b823ca298a9e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
