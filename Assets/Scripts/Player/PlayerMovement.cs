@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     public string jumpButton = "Jump_P1";
     public string useButton = "Use_P1";
     public string pickUpButton = "PickUp_P1";
+    public Vector2 throwForce = new Vector2();
 
 
 
@@ -83,12 +84,18 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
     }
-
+    private void calculateThrowForce()
+    {
+        //code to figure out the throw force (INCOMPLETE)
+    }
     private void Drop() {
         //drop code
         Debug.Log("Drop Called");
-        transform.Find("Equipment Slot").gameObject.SetActive(false);
-        transform.Find("Equipment Slot").DetachChildren();
+        Transform gun = transform.Find("Equipment Slot").GetChild(0).GetChild(1); //Get the Pistol Pick Up Object
+        transform.Find("Equipment Slot").DetachChildren(); //Remove the Pistol Prefab from Equipment Slot
+        gun.gameObject.SetActive(true); // Set the pickup to active
+        gun.gameObject.GetComponent<IThrowable>().Throw(throwForce); //Throw the object;
+        
     }
 
     public void OnLanding() {

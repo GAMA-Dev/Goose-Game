@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour, IUseable, IThrowable {
         }
     }
 
-    public void Throw() {
+    public void Throw(Vector2 force) {
         Debug.Log(name + "Throw function called");
     }
 

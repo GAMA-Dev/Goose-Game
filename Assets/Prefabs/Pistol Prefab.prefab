@@ -233,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644f798c25b8a3f4d801ccf6b107c38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrown: 0
-  realGun: {fileID: 1248538992593548, guid: 9fa00f70d94dc4144992d54bbc3abcd6, type: 2}
+  realGun: {fileID: 1533192060440630}
+  parent: {fileID: 1153118163091352}
 --- !u!114 &114209995644567596
 MonoBehaviour:
   m_ObjectHideFlags: 1
