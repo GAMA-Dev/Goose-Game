@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IThrowable {
 
-    void Throw();
+    void Throw(Vector2 number);
 
 }

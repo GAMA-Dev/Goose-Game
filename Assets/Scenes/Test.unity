@@ -6528,7 +6528,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 10.9507065
+  field of view: 10.833345
   orthographic: 1
   orthographic size: 5.25
   m_Depth: -1
@@ -7872,6 +7872,7 @@ MonoBehaviour:
   controller: {fileID: 966326975}
   equipslot: {fileID: 1279589531}
   runSpeed: 40
+  throwStregth: 100
   playerName: 1
   axisHorizontal: Horizontal_P2
   axisVertical: Vertical_P2
@@ -8444,6 +8445,7 @@ MonoBehaviour:
   controller: {fileID: 1270753454}
   equipslot: {fileID: 1929241989}
   runSpeed: 40
+  throwStregth: 100
   playerName: 1
   axisHorizontal: Horizontal_P1
   axisVertical: Vertical_P1
@@ -8968,6 +8970,7 @@ MonoBehaviour:
   controller: {fileID: 1372549459}
   equipslot: {fileID: 1762459083}
   runSpeed: 40
+  throwStregth: 100
   playerName: 1
   axisHorizontal: Horizontal_P2
   axisVertical: Vertical_P2
@@ -9838,58 +9841,53 @@ MonoBehaviour:
   m_Bones: []
   m_BoneTransforms:
   - {fileID: 571761066}
---- !u!1001 &1851392097
+--- !u!1001 &1821842072
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.286358
+      value: -2.731163
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.0218794
+      value: -1.7838147
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4587946394052406, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+    - target: {fileID: 4167723851810216, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114495624997363346, guid: 861b0aba2eb00e64489992d18bf01b74,
+    - target: {fileID: 114209995644567596, guid: 1056d7add051cd04b948c3a520907b01,
         type: 2}
-      propertyPath: realGun
+      propertyPath: ammoPrefab
       value: 
-      objectReference: {fileID: 1248538992593548, guid: 85fb1725f24632842ba116bee7aa6fea,
+      objectReference: {fileID: 1047423284905806, guid: 31f15808d1dd1444e8d5f2a6406be762,
         type: 2}
-    - target: {fileID: 212152128644397668, guid: 861b0aba2eb00e64489992d18bf01b74,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 861b0aba2eb00e64489992d18bf01b74, type: 2}
+  m_SourcePrefab: {fileID: 100100000, guid: 1056d7add051cd04b948c3a520907b01, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1895053864
 GameObject:

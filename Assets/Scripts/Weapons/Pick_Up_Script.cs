@@ -2,29 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pick_Up_Script : MonoBehaviour, IEquipable {
-	public bool thrown;
+public class Pick_Up_Script : MonoBehaviour, IEquipable, IThrowable {
+
 	[SerializeField]
 	private GameObject realGun;
+	private Rigidbody2D body;
 
 
 	// Use this for initialization
 	void Awake () 
 	{
-		if(thrown)
-		{
-			//throwing code
-		}
-		else
-		{
-			//else
-		}
+		body = GetComponent<Rigidbody2D>();
 	}
 	
 	public void Equip (Transform slot) 
 	{
-        Instantiate(realGun, slot.position, Quaternion.identity, slot);
-        Destroy(this.gameObject); 
+		transform.parent.transform.position = slot.position; //Sets the Pistol Prefab object position to the given slot
+        transform.parent.transform.localScale = slot.parent.localScale; //makes sure the pistol is facing the right way
+		transform.parent.transform.SetParent(slot); // Attaches the Pistol Prefab object to the given slot
+        gameObject.SetActive(false); //Disables the pickup object
 	}
-	
+	void OnDisable()
+	{ //Enables the Real Gun after disabling the pickup object
+		realGun.SetActive(true);
+	}
+	void OnEnable()
+	{
+		//Code that sets the pickup to the parent's position and disables the real gun
+		transform.position = transform.parent.transform.position;
+		realGun.SetActive(false);
+	}
+	public void Throw(Vector2 force)
+	{
+		body.AddForce(force); //Throws the object
+	}
 }

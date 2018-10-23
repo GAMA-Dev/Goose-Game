@@ -8,9 +8,13 @@ public class Ammo : MonoBehaviour {
     [SerializeField]
     private int bulletspeed = 100;
 
+    private void Awake() {
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletspeed,0));
+    }
 
-    private void OnColliderEnter(Collider other) {
-        Health health = other.GetComponent<Health>();
+
+    void OnCollisionEnter2D(Collision2D other) {
+        Health health = other.gameObject.GetComponent<Health>();
         if (health != null) {
             health.Damage(damage);
         }

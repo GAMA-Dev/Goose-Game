@@ -154,7 +154,7 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-    public float getVelocityY() {
-        return m_Rigidbody2D.velocity.y;
+    public Vector2 getVelocity() {
+        return m_Rigidbody2D.velocity;
     }
 }

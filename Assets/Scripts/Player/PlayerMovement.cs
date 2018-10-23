@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public Transform equipslot;
 
     public float runSpeed = 40f;
-
+    public float throwStregth = 100f;
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
@@ -44,6 +44,9 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (transform.Find("Equipment Slot").childCount == 0) {
                 Pickup();
+            }
+            else if(Mathf.Abs(horizontalMove) > 0) {
+                Throw();
             }
             else {
                 Drop();
@@ -84,11 +87,24 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void Throw() {
+        //drop code
+        Debug.Log("Throw Called");
+        Transform pickup = transform.Find("Equipment Slot").GetChild(0).GetChild(1); //Get the Pistol Pick Up Object
+        transform.Find("Equipment Slot").DetachChildren(); //Remove the Pistol Prefab from Equipment Slot
+        pickup.gameObject.SetActive(true); // Set the pickup to active
+        float throwForce = controller.getVelocity().x * throwStregth;
+        pickup.gameObject.GetComponent<IThrowable>().Throw(new Vector2(throwForce,0)); //Throw the object;
+    }
+
     private void Drop() {
         //drop code
         Debug.Log("Drop Called");
-        transform.Find("Equipment Slot").gameObject.SetActive(false);
-        transform.Find("Equipment Slot").DetachChildren();
+        Transform pickup = transform.Find("Equipment Slot").GetChild(0).GetChild(1); //Get the Pistol Pick Up Object
+        transform.Find("Equipment Slot").DetachChildren(); //Remove the Pistol Prefab from Equipment Slot
+        pickup.gameObject.SetActive(true); // Set the pickup to active
+        pickup.gameObject.GetComponent<IThrowable>().Throw(new Vector2()); //Drop the object;
+        
     }
 
     public void OnLanding() {
