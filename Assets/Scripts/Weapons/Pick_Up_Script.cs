@@ -6,8 +6,6 @@ public class Pick_Up_Script : MonoBehaviour, IEquipable, IThrowable {
 
 	[SerializeField]
 	private GameObject realGun;
-	[SerializeField]
-	private GameObject parent;
 	private Rigidbody2D body;
 
 
@@ -19,9 +17,10 @@ public class Pick_Up_Script : MonoBehaviour, IEquipable, IThrowable {
 	
 	public void Equip (Transform slot) 
 	{
-		parent.transform.position = slot.position; //Sets the Pistol Prefab object position to the given slot
-		parent.transform.SetParent(slot); // Attaches the Pistol Prefab object to the given slot
-        this.gameObject.SetActive(false); //Disables the pickup object
+		transform.parent.transform.position = slot.position; //Sets the Pistol Prefab object position to the given slot
+        transform.parent.transform.localScale = slot.parent.localScale; //makes sure the pistol is facing the right way
+		transform.parent.transform.SetParent(slot); // Attaches the Pistol Prefab object to the given slot
+        gameObject.SetActive(false); //Disables the pickup object
 	}
 	void OnDisable()
 	{ //Enables the Real Gun after disabling the pickup object
@@ -30,7 +29,7 @@ public class Pick_Up_Script : MonoBehaviour, IEquipable, IThrowable {
 	void OnEnable()
 	{
 		//Code that sets the pickup to the parent's position and disables the real gun
-		transform.position = parent.transform.position;
+		transform.position = transform.parent.transform.position;
 		realGun.SetActive(false);
 	}
 	public void Throw(Vector2 force)

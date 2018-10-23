@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour, IUseable, IThrowable {
+public class Gun : MonoBehaviour, IUseable {
     [SerializeField]
     private int ammoCount = 1;
     [SerializeField]
@@ -14,17 +14,15 @@ public class Gun : MonoBehaviour, IUseable, IThrowable {
     public void Use() {
         if (ammoCount >= 1) {
             ammoCount--;
-            //GameObject bullet = Instantiate(ammoPrefab, ammoSpawn.position, ammoSpawn.rotation);
+            GameObject bullet = Instantiate(ammoPrefab, ammoSpawn.position, new Quaternion());
             Debug.Log("Use called");
         }
         else {
-            Debug.Log(name + "is empty");
+            Debug.Log(name + " is empty");
         }
     }
 
-    public void Throw(Vector2 force) {
-        Debug.Log(name + "Throw function called");
-    }
+
 
     
 }
