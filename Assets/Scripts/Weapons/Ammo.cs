@@ -10,10 +10,7 @@ public class Ammo : MonoBehaviour {
 
 
     //need to get scale of duck who is shooting and multiply it by bulletspeed to get direction
-    private void Awake() {
-
-        GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletspeed,0));
-    }
+    
 
 
     void OnCollisionEnter2D(Collision2D other) {
