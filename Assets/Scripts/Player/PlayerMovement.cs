@@ -52,12 +52,19 @@ public class PlayerMovement : MonoBehaviour {
                 Drop();
             }
         }
-        if (Input.GetButtonDown(useButton)) {
+        if (Input.GetButtonDown(useButton) && transform.GetChild(4).GetChild(0).GetComponentInChildren<AmmoCount>().count >= 0) {
             if (equipslot.childCount == 1) {
                 IUseable equipment = equipslot.GetComponentInChildren<IUseable>();
                 if (equipment != null) {
                     equipment.Use();
                 }
+            }
+        }
+        if(transform.GetChild(4).GetChild(0))
+        {
+            if(transform.GetChild(4).GetChild(0).GetComponentInChildren<AmmoCount>().count < 0 && Input.GetButtonDown(useButton))
+            {
+                transform.GetChild(4).GetChild(0).GetComponentInChildren<AmmoCount>().reload();
             }
         }
     }
